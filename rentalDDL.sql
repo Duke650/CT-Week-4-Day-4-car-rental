@@ -15,7 +15,8 @@ CREATE TABLE cars (
     make VARCHAR(255),
     model VARCHAR(255),
     serialNum INT UNIQUE,
-    salesPersonID INT REFERENCES salesPersons(salesPersonID)
+    salesPersonID INT REFERENCES salesPersons(salesPersonID),
+    customerID INT REFERENCES customers(customerID)
 );
 
 CREATE TABLE mechanics (
@@ -33,7 +34,7 @@ CREATE TABLE invoices (
     invoiceID SERIAL PRIMARY KEY,
     salesPersonID INT REFERENCES salesPersons(salesPersonID),
     customerID INT REFERENCES customers(customerID),
-    carID INT REFERENCES cars(carID)
+    carID INT REFERENCES cars(carID) UNIQUE
 );
 
 CREATE TABLE mechanicServices (
