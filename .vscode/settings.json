@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "name": "Car Rental",
+            "connectString": "postgres://ffxpvatt:hf4P7n1h0DMGCY7-KQ3G-6ngFkkirfNU@kashin.db.elephantsql.com/ffxpvatt"
+        }
+    ]
+}
