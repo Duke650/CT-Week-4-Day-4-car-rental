@@ -10,6 +10,11 @@ CREATE TABLE customers (
     email VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE mechanics (
+    mechanicID SERIAL PRIMARY KEY,
+    fullName VARCHAR(255) NOT NULL
+);
+
 CREATE TABLE cars (
     carID SERIAL PRIMARY KEY,
     make VARCHAR(255),
@@ -19,14 +24,9 @@ CREATE TABLE cars (
     customerID INT REFERENCES customers(customerID)
 );
 
-CREATE TABLE mechanics (
-    mechanicID SERIAL PRIMARY KEY,
-    fullName VARCHAR(255)
-);
-
 CREATE TABLE services (
     serviceID SERIAL PRIMARY KEY,
-    carID INT REFERENCES cars(carID),
+    serialNum INT REFERENCES cars(serialNum) UNIQUE,
     customerID INT REFERENCES customers(customerID)
 );
 
@@ -34,13 +34,14 @@ CREATE TABLE invoices (
     invoiceID SERIAL PRIMARY KEY,
     salesPersonID INT REFERENCES salesPersons(salesPersonID),
     customerID INT REFERENCES customers(customerID),
-    carID INT REFERENCES cars(carID) UNIQUE
+    carID INT REFERENCES cars(carID)
 );
 
 CREATE TABLE mechanicServices (
     mechanicID INT REFERENCES mechanics(mechanicID),
     serviceID INT REFERENCES services(serviceID)
-)
+);
+
 
 DROP TABLE mechanicServices;
 DROP TABLE invoices;

@@ -20,6 +20,13 @@ VALUES ('Kyle G.', 'kyle@email.com');
 INSERT INTO customers (fullName, email)
 VALUES ('Bobby D.', 'bobby@email.com');
 
+-- Mechanics
+INSERT INTO mechanics (fullName)
+VALUES ('Jack H');
+
+INSERT INTO mechanics (fullName)
+VALUES ('Ryan G');
+
 -- Cars
 INSERT INTO cars (make, model, serialNum, salesPersonID, customerID)
 VALUES ('Honda', 'Civic', 9871231, 2, 1);
@@ -40,26 +47,19 @@ VALUES (2, 1, 1);
 INSERT INTO invoices (salesPersonID, customerID, carID)
 VALUES (2, 1, 3);
 
--- Mechanics
-INSERT INTO mechanics (fullName)
-VALUES ('Jack H');
-
-INSERT INTO mechanics (fullName)
-VALUES ('Ryan G');
-
 -- Services
-INSERT INTO services (carID, customerID)
-VALUES (1, 2);
+INSERT INTO services (serialNum, customerID)
+VALUES (9871231, 2);
 
-INSERT INTO services (carID, customerID)
-VALUES (2, 2);
+INSERT INTO services (serialNum, customerID)
+VALUES (6217836, 2);
 
 -- MechanicServices
 INSERT INTO mechanicServices (mechanicID, serviceID)
-VALUES (1, 2);
+VALUES (1, 3);
 
 INSERT INTO mechanicServices (mechanicID, serviceID)
-VALUES (2, 1);
+VALUES (2, 4);
 
 
 
